@@ -23,7 +23,7 @@ def run():
     
     visible_dict = {k: v for k, v in inputs.items() if k == 'topic'}
     hidden_dict = {k: v for k, v in inputs.items() if k != 'topic'}
-    LatestAiDevelopment(hidden_dict).crew().kickoff(inputs=inputs)
+    LatestAiDevelopment(hidden_inputs=hidden_dict).crew().kickoff(inputs=visible_dict)
 
 
 def train():
