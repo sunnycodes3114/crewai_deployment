@@ -16,9 +16,14 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs'
+        'topic': 'AI LLMs',
+        'chat_id': "59611922-0a6e-438e-bf30-2eba03a0efd5",
+        'bot_user_id': "7109d6a8-1799-4c45-b22e-45e1baba3e26"
     }
-    LatestAiDevelopment().crew().kickoff(inputs=inputs)
+    visible_dict = {k: v for k, v in inputs.items() if k == 'topic'}
+    hidden_dict = {k: v for k, v in inputs.items() if k != 'topic'}
+    crew = LatestAiDevelopment(hidden_dict).crew()
+    result = crew.kickoff(inputs=visible_dict)
 
 
 def train():
