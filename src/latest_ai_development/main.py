@@ -24,6 +24,9 @@ def run():
     hidden_dict = {k: v for k, v in inputs.items() if k != 'topic'}
     crew = LatestAiDevelopment(hidden_dict).crew()
     result = crew.kickoff(inputs=visible_dict)
+    visible_dict = {k: v for k, v in inputs.items() if k == 'topic'}
+    hidden_dict = {k: v for k, v in inputs.items() if k != 'topic'}
+    LatestAiDevelopment(hidden_dict).crew().kickoff(inputs=visible_dict)
 
 
 def train():
