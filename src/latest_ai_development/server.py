@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from your_crews import LatestAiDevelopment  # import your crew class
+from crew import LatestAiDevelopment  # import your crew class
 
 app = FastAPI()
 
