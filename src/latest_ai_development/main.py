@@ -17,24 +17,26 @@ def run():
     """
     inputs = {
         'topic': 'AI LLMs',
-        #'chat_id': "59611922-0a6e-438e-bf30-2eba03a0efd5",
-        #'bot_user_id': "7109d6a8-1799-4c45-b22e-45e1baba3e26"
+        'chat_id': "59611922-0a6e-438e-bf30-2eba03a0efd5",
+        'bot_user_id': "7109d6a8-1799-4c45-b22e-45e1baba3e26"
     }
-    
+
     visible_dict = {k: v for k, v in inputs.items() if k == 'topic'}
     hidden_dict = {k: v for k, v in inputs.items() if k != 'topic'}
     LatestAiDevelopment(hidden_inputs=hidden_dict).crew().kickoff(inputs=visible_dict)
 
 
 def train():
-    """
-    Train the crew for a given number of iterations.
-    """
     inputs = {
-        "topic": "AI LLMs"
+        'topic': 'AI LLMs',
+        'chat_id': "59611922-0a6e-438e-bf30-2eba03a0efd5",
+        'bot_user_id': "7109d6a8-1799-4c45-b22e-45e1baba3e26"
     }
+
+    visible_dict = {k: v for k, v in inputs.items() if k == 'topic'}
+    hidden_dict = {k: v for k, v in inputs.items() if k != 'topic'}
     try:
-        LatestAiDevelopment().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        LatestAiDevelopment(hidden_inputs=hidden_dict).crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=visible_dict)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -43,8 +45,16 @@ def replay():
     """
     Replay the crew execution from a specific task.
     """
+    inputs = {
+        'topic': 'AI LLMs',
+        'chat_id': "59611922-0a6e-438e-bf30-2eba03a0efd5",
+        'bot_user_id': "7109d6a8-1799-4c45-b22e-45e1baba3e26"
+    }
+
+    visible_dict = {k: v for k, v in inputs.items() if k == 'topic'}
+    hidden_dict = {k: v for k, v in inputs.items() if k != 'topic'}
     try:
-        LatestAiDevelopment().crew().replay(task_id=sys.argv[1])
+        LatestAiDevelopment(hidden_inputs=hidden_dict).crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -54,10 +64,15 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs"
+        'topic': 'AI LLMs',
+        'chat_id': "59611922-0a6e-438e-bf30-2eba03a0efd5",
+        'bot_user_id': "7109d6a8-1799-4c45-b22e-45e1baba3e26"
     }
+
+    visible_dict = {k: v for k, v in inputs.items() if k == 'topic'}
+    hidden_dict = {k: v for k, v in inputs.items() if k != 'topic'}
     try:
-        LatestAiDevelopment().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
+        LatestAiDevelopment(hidden_inputs=hidden_dict).crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=visible_dict)
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
